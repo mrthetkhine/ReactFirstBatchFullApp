@@ -1,4 +1,4 @@
-import {LOAD_POSTS} from "../action/constant/action-type";
+import {ADD_POST, LOAD_POSTS} from "../action/constant/action-type";
 
 const initialState = {
     posts: [],
@@ -10,6 +10,8 @@ function rootReducer(state = initialState, action) {
     {
         case LOAD_POSTS:
             return {...initialState, posts:action.posts};
+        case ADD_POST:
+            return {...initialState, posts:[...state.posts,action.post]};
     }
 
 
