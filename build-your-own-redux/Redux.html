@@ -1,0 +1,69 @@
+<html>
+    <script>
+        console.log("Build your own Redux");
+
+        var store = {
+            todos : [ "Item One ","Item Two ","Item three"],
+            users :["userOne"]
+        };
+
+        function addToDo(text)
+        {
+            return {
+                type: "ADD",
+                payload : text
+            }
+        }
+        function reducer(state,action)
+        {
+            switch(action.type)
+            {
+                case 'ADD':
+                    return {...state,todos : [...state.todos, action.payload]}
+            }
+            return state;
+        }
+        function addUser(user)
+        {
+            return {
+                type: "ADD_USER",
+                payload : user
+            }
+        }
+        function userReducer(state,action)
+        {
+            switch(action.type)
+            {
+                case 'ADD_USER':
+                    return {...state,users : [...state.users, action.payload]}
+            }
+            return state;
+        }
+        function combineReducer(reducer1,reducer2)
+        {
+            return function (state,action)
+            {
+                let state1 = reducer1(state,action);
+                let state2 = reducer2(state1,action);
+                return state2;
+            }
+
+        }
+        function dispatch(action)
+        {
+            //NextState = previousState + action
+            console.log('Dispatch action ',action);
+            let newReducer = combineReducer(reducer,userReducer);
+            store = newReducer(store,action); 
+            return store;
+        }
+        console.log("Done reducer");
+        let nextState = dispatch(addToDo('Four'));
+        console.log('Sate after add four ',nextState);
+        nextState = dispatch(addToDo('Five'));
+        console.log('Sate after add Five ',nextState);
+
+        nextState = dispatch(addUser("user two"));
+        console.log('Sate after add user ',nextState);
+    </script>
+</html>

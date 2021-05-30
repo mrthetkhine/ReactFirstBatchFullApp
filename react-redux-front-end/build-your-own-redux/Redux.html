@@ -1,0 +1,39 @@
+<html>
+    <script>
+        console.log("Build your own Redux");
+
+        var store = {
+            todos : [ "Item One ","Item Two ","Item three"],
+            users :["userOne"]
+        };
+
+        function addToDo(text)
+        {
+            return {
+                type: "ADD",
+                payload : text
+            }
+        }
+        function reducer(state,action)
+        {
+            switch(action.type)
+            {
+                case 'ADD':
+                    return {...state,todos : [...state.todos, action.payload]}
+            }
+            return state;
+        }
+        function dispatch(action)
+        {
+            //NextState = previousState + action
+            console.log('Dispatch action ',action);
+            store = reducer(store,action); 
+            return store;
+        }
+        console.log("Done reducer");
+        let nextState = dispatch(addToDo('Four'));
+        console.log('Sate after add four ',nextState);
+        nextState = dispatch(addToDo('Five'));
+        console.log('Sate after add Five ',nextState);
+    </script>
+</html>
