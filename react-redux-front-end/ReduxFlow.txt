@@ -1,0 +1,6 @@
+//Create store
+//Create Action
+    For backend Action use thunk
+    //Bind with dispatch
+//Create Reducer
+//Use connect with Component to access store

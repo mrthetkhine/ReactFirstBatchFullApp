@@ -1,19 +1,22 @@
 import React from "react";
 import {connect} from "react-redux";
+import Post from "../components/Post";
 
 const mapStateToProps = state=>{
     return {
         posts : state.posts
     }
 }
-const Posts = ({posts})=> {
+const PostListPage = ({posts})=> {
     console.log('Posts ',posts);
     return( <div>
         {
             posts.map(post=>(
-                <div key={post._id}>{post.title}</div>))
+                <Post key={post._id} post={post}>
+
+                </Post>))
         }
     </div>)
 };
 
-export default connect(mapStateToProps)(Posts);
+export default connect(mapStateToProps)(PostListPage);
