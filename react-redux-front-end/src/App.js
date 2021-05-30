@@ -16,12 +16,9 @@ function mapDispatchToProps(dispatch) {
 function App({loadPosts}) {
 
   useEffect(()=>{
-    console.log("load data");
     loadPosts();
   },[])
-
-  console.log("Store ", window.store);
-  console.log("Store ",window.store.getState());
+  
   return (
     <div className="App">
       <Posts></Posts>
