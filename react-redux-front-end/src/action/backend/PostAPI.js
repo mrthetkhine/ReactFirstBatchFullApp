@@ -1,7 +1,7 @@
 import {addPost, loadPosts} from "../index";
 import {API_HOST} from "../../Setting";
 const API_URL = API_HOST+"/posts"
-export function loadAllPost()
+export function apiLoadAllPost()
 {
     console.log('Load all post with REST');
     return (dispatch)=>{
@@ -21,6 +21,10 @@ export function apiAddPost(title,body)
     };
     let options = {
         method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
         body:JSON.stringify(jsonReq)
     };
     return (dispatch)=>{
