@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
         const post = await newPost.save();
         if(!post) throw Error('Something went wrong with the post')
         res.status(200).json(post);
-    } catch {
+    } catch(error) {
         res.status(400).json({msg: error})
     }
 });
