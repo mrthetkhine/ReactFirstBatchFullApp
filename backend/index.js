@@ -1,10 +1,12 @@
 const express = require('express');
+const cors = require('cors')
 const mongoose = require('mongoose');
 const { db } = require('./db/database');
 const postsRoutes = require('./routes/api/PostController')
 const commentsRoutes = require('./routes/api/CommentController');
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 mongoose.connect(db, {

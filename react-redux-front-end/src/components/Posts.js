@@ -8,12 +8,12 @@ const mapStateToProps = state=>{
 }
 const Posts = ({posts})=> {
     console.log('Posts ',posts);
-    return( <ul>
+    return( <div>
         {
             posts.map(post=>(
-                <li key={post.id}>{post.title}</li>))
+                <div key={post._id}>{post.title}</div>))
         }
-    </ul>)
+    </div>)
 };
 
 export default connect(mapStateToProps)(Posts);

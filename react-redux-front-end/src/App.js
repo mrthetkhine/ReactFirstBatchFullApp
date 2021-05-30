@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import {loadPosts} from "./action";
+import {loadAllPost} from "./action/backend/PostAPI";
 import Posts from "./components/Posts";
 import {connect} from "react-redux";
 
@@ -17,17 +18,7 @@ function App({loadPosts}) {
 
   useEffect(()=>{
     console.log("load data");
-    let posts = [
-      {
-        id:1,
-        title:'One'
-      },
-      {
-        id:2,
-        title:'Two'
-      }
-    ]
-    loadPosts(posts);
+    loadAllPost(loadPosts);
   },[])
 
   console.log("Store ", window.store);
