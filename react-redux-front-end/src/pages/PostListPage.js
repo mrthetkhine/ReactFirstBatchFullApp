@@ -18,6 +18,10 @@ function mapDispatchToProps(dispatch) {
 }
 
  */
+function getCommentForPost(comments,post)
+{
+    return comments.filter(comment=>comment.post== post._id);
+}
 const PostListPage = ()=> {
     //console.log('Posts ',posts);
     let posts = useSelector(state=>state.posts);
@@ -38,7 +42,7 @@ const PostListPage = ()=> {
                 <Post key={post._id}
                       post={post}
                       deletePost={deletePostFunc}
-                        comments={comments}>
+                      comments={getCommentForPost(comments,post)}>
 
                 </Post>))
         }
