@@ -13,7 +13,9 @@ function rootReducer(state = initialState, action) {
         case ADD_POST:
             return {...initialState, posts:[...state.posts,action.post]};
         case DELETE_POST:
-            return {...initialState, posts:[state.posts.filter(post=>post._id != action.post._id)]};
+            return {...initialState, posts:state.posts.filter(post=>post._id != action.post._id)};
+
+
     }
 
 

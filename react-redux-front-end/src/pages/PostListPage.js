@@ -24,14 +24,17 @@ const PostListPage = ()=> {
 
     let dispatch = useDispatch();
     let addPost = (title,body)=>dispatch(apiAddPost(title,body));
-    let deletePost = post=> dispatch(deletePost(post));
+    let deletePostFunc = post=> dispatch(deletePost(post));
+
     return( <div className={"row"}>
         <AddPostForm addPost={addPost}>
 
         </AddPostForm>
         {
             posts.map(post=>(
-                <Post key={post._id} post={post}>
+                <Post key={post._id}
+                      post={post}
+                      deletePost={deletePostFunc}>
 
                 </Post>))
         }

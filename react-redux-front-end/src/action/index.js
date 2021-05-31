@@ -1,4 +1,4 @@
-import {ADD_POST, LOAD_POSTS} from './constant/action-type';
+import {ADD_POST, DELETE_POST, LOAD_POSTS} from './constant/action-type';
 
 export function loadPosts(posts)
 {
@@ -16,7 +16,7 @@ export function addPost(post)
 }
 export function deletePost(post) {
     return {
-        type: ADD_POST,
+        type: DELETE_POST,
         post: post
     }
 }
