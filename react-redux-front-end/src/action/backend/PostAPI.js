@@ -1,4 +1,4 @@
-import {addPost, loadPosts} from "../index";
+import {addPost, loadPosts,deletePost} from "../index";
 import {API_HOST} from "../../Setting";
 const API_URL = API_HOST+"/posts"
 export function apiLoadAllPost()
@@ -32,6 +32,24 @@ export function apiAddPost(title,body)
         fetch(API_URL,options)
             .then(response=>response.json())
             .then(post=>dispatch(addPost(post)));
+        ;
+    }
+}
+
+export function apiDeletePost(reqPost)
+{
+    let options = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        }
+    };
+    return (dispatch)=>{
+        console.log('Run function delete Post');
+        fetch(API_URL+"/"+reqPost._id,options)
+            .then(response=>response.json())
+            .then(post=>dispatch(deletePost(reqPost)));
         ;
     }
 }

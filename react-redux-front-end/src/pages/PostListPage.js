@@ -1,8 +1,8 @@
 import React from "react";
 import {connect, useDispatch, useSelector} from "react-redux";
 import Post from "../components/Post";
-import {apiLoadAllPost,apiAddPost} from "../action/backend/PostAPI";
-import {deletePost} from "../action";
+import {apiLoadAllPost,apiAddPost,apiDeletePost} from "../action/backend/PostAPI";
+
 import AddPostForm from "../components/AddPostForm";
 
 /*
@@ -24,7 +24,7 @@ const PostListPage = ()=> {
 
     let dispatch = useDispatch();
     let addPost = (title,body)=>dispatch(apiAddPost(title,body));
-    let deletePostFunc = post=> dispatch(deletePost(post));
+    let deletePostFunc = post=> dispatch(apiDeletePost(post));
 
     return( <div className={"row"}>
         <AddPostForm addPost={addPost}>
