@@ -1,4 +1,4 @@
-import {addPost, loadPosts,deletePost} from "../index";
+import {addPost, loadPosts,deletePost} from "../PostActions";
 import {API_HOST} from "../../Setting";
 const API_URL = API_HOST+"/posts"
 export function apiLoadAllPost()
