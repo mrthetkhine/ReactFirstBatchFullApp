@@ -4,8 +4,9 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import {apiLoadAllPost} from "./action/backend/PostAPI";
 import Posts from "./components/Post";
-import {connect} from "react-redux";
+import {connect, useDispatch} from "react-redux";
 import PostListPage from "./pages/PostListPage";
+import {apiLoadAllComments} from "./action/backend/CommentAPI";
 
 let store = window.store;
 
@@ -17,8 +18,10 @@ function mapDispatchToProps(dispatch) {
 
 function App({loadPosts}) {
 
+  let dispatch = useDispatch();
   useEffect(()=>{
     loadPosts();
+    dispatch(apiLoadAllComments());
   },[])
 
   return (
