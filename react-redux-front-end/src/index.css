@@ -28,4 +28,20 @@ code {
 .post-body
 {
   text-align: left;
+  margin-bottom: 10px;
+}
+.comment-section
+{
+  border-top:1px solid lightgray;
+  text-align: left;
+  margin-top:5px;
+  padding-top:10px;
+}
+.comment
+{
+  margin-left:50px;
+  border:1px solid lightgray;
+  border-radius:5px;
+  padding:5px;
+  margin-bottom: 5px;
 }

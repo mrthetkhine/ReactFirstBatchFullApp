@@ -1,6 +1,14 @@
 import {LOAD_COMMENTS} from "../action/constant/action-type";
 
-const initialState = [];
+const initialState = [{
+    _id: 1,
+    text: "Comment Demo"
+},
+    {
+        _id: 2,
+        text: "Second comment Demo"
+    }
+];
 //state = comments
 function commentReducer(state = initialState, action) {
     switch(action.type)

@@ -1,5 +1,5 @@
 import React from "react";
-const Post = ({post,deletePost})=> {
+const Post = ({post,comments,deletePost})=> {
     //console.log('Post ',post);
 
 
@@ -9,6 +9,16 @@ const Post = ({post,deletePost})=> {
                 <h6 className="card-title"> {post.title}</h6>
                 <div className={"post-body"}>
                     {post.body}
+                </div>
+                <div className={"comment-section"}>
+                    {
+                        comments.map(comment=>(
+                            <div key={comment._id}
+                                 className={"comment"}
+                            >
+                                {comment.text}
+                            </div>))
+                    }
                 </div>
                 <button type="button"
                         className={"btn btn-primary"}

@@ -21,6 +21,9 @@ function mapDispatchToProps(dispatch) {
 const PostListPage = ()=> {
     //console.log('Posts ',posts);
     let posts = useSelector(state=>state.posts);
+    let comments = useSelector(state=>state.comments);
+
+    console.log('Comments ',comments);
 
     let dispatch = useDispatch();
     let addPost = (title,body)=>dispatch(apiAddPost(title,body));
@@ -34,7 +37,8 @@ const PostListPage = ()=> {
             posts.map(post=>(
                 <Post key={post._id}
                       post={post}
-                      deletePost={deletePostFunc}>
+                      deletePost={deletePostFunc}
+                        comments={comments}>
 
                 </Post>))
         }
