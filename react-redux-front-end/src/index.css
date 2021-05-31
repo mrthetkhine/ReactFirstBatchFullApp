@@ -11,3 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.card-title
+{
+  text-align: left;
+  font-weight: bold;
+}
+.card
+{
+  box-shadow: gray;
+  margin-top:10px;
+  margin-bottom:10px;
+  margin-left:30px;
+  margin-right: 30px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.post-body
+{
+  text-align: left;
+}
