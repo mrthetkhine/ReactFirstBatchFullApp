@@ -8,6 +8,7 @@ const Post = ({post})=> {
                 <div>
                     {post.body}
                 </div>
+                <button type="button" className={"btn btn-primary"}>Delete</button>
             </div>
         </div>
 

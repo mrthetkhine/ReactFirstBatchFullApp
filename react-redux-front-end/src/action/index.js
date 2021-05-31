@@ -14,3 +14,9 @@ export function addPost(post)
         post: post
     }
 }
+export function deletePost(post) {
+    return {
+        type: ADD_POST,
+        post: post
+    }
+}

@@ -1,4 +1,4 @@
-import {ADD_POST, LOAD_POSTS} from "../action/constant/action-type";
+import {ADD_POST, DELETE_POST, LOAD_POSTS} from "../action/constant/action-type";
 
 const initialState = {
     posts: [],
@@ -12,6 +12,8 @@ function rootReducer(state = initialState, action) {
             return {...initialState, posts:action.posts};
         case ADD_POST:
             return {...initialState, posts:[...state.posts,action.post]};
+        case DELETE_POST:
+            return {...initialState, posts:[state.posts.filter(post=>post._id != action.post._id)]};
     }
 
 
