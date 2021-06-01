@@ -34,13 +34,21 @@ function App({loadPosts}) {
   return (
       <Router>
         <div className="App">
-          <nav className="navbar" >
-            <div className="navbar-nav " id="navbarNav">
-              <ul className="navbar-nav mr-auto">
-                <li className="nav-item"><Link to="/">Home</Link></li>
-                <li className="nav-item"><Link to="/new-post">New Post</Link></li>
-                <li className="nav-item"><Link to="/post-list">Post List</Link></li>
-              </ul>
+          <nav className="navbar navbar-expand-lg navbar-light bg-light" >
+            <div className="container-fluid">
+              <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="nav navbar-nav me-auto mb-2 mb-lg-0">
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/">Home</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link"to="/new-post">New Post</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/post-list">Post List</Link>
+                  </li>
+                </ul>
+              </div>
             </div>
 
           </nav>

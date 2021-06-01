@@ -23,23 +23,40 @@ code {
   margin-left:40px;
   margin-right: 40px;
 }
-.card
+.navbar
 {
+  margin-bottom: 20px;
+}
+.post
+{
+  padding-left:50px;
+  padding-right:50px;
   box-shadow: gray;
-  margin-top:10px;
+  margin-top:25px;
   margin-bottom:10px;
-  margin-left:30px;
-  margin-right: 30px;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  box-shadow: 2px 5px 12px 1px rgba(0, 0, 0, 0.2);
+  min-height: 150px;
+}
+.post-title
+{
+  height:50px;
+  line-height: 50px;
+  font-family: "Georgia";
+  font-weight: bold;
+  text-align: left;
+  border-bottom: 1px solid lightgray;
 }
 .post-body
 {
+  padding-top: 10px;
   text-align: left;
   margin-bottom: 10px;
+  min-height: 200px;
 }
 .comment-section
 {
-  border-top:1px solid lightgray;
+  //border-top:1px solid lightgray;
   text-align: left;
   margin-top:5px;
   padding-top:10px;

@@ -22,7 +22,7 @@ const PostListDetailPage = (props)=>{
     //let addPost = (title,body)=>dispatch(apiAddPost(title,body));
     let deletePostFunc = post=> dispatch(apiDeletePost(post));
     return (
-        <div>
+        <div className={"row justify-content-center"}>
 
             <PostDetail key={post._id}
                   post={post}

@@ -34,7 +34,7 @@ const PostListPage = ()=> {
     //let addPost = (title,body)=>dispatch(apiAddPost(title,body));
     let deletePostFunc = post=> dispatch(apiDeletePost(post));
 
-    return( <div className={"row"}>
+    return( <div className={"row justify-content-center"}>
 
         {
             posts.map(post=>(

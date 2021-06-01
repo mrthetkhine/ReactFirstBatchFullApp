@@ -7,19 +7,25 @@ const Post = ({post,deletePost})=> {
         history.push('/post-list-detail/'+post._id);
     };
     return (
-        <div className="card" onClick={()=>goToPostDetail()}>
-            <div className="card-body">
-
-                <h6 className="card-title"> {post.title}</h6>
-                <div className={"post-body"}>
-                    {post.body}
+        <div className="post col-sm-8"
+            onClick={()=>goToPostDetail()}>
+            <div className={"post-title row"}>
+                <div className={"col-sm-8"}>
+                {post.title}
                 </div>
-                <button type="button"
-                        className={"btn btn-primary"}
-                        onClick={()=>deletePost(post)}>
-                    Delete
-                </button>
+                <div className={"col-sm-4 text-end"}>
+                    <button type="button"
+                            className={"btn btn-primary"}
+                            onClick={()=>deletePost(post)}>
+                        Delete
+                    </button>
+                </div>
             </div>
+            <div className={"post-body"}>
+                {post.body}
+
+            </div>
+
         </div>
 
     );
