@@ -30,13 +30,11 @@ const PostListPage = ()=> {
     console.log('Comments ',comments);
 
     let dispatch = useDispatch();
-    let addPost = (title,body)=>dispatch(apiAddPost(title,body));
+    //let addPost = (title,body)=>dispatch(apiAddPost(title,body));
     let deletePostFunc = post=> dispatch(apiDeletePost(post));
 
     return( <div className={"row"}>
-        <AddPostForm addPost={addPost}>
 
-        </AddPostForm>
         {
             posts.map(post=>(
                 <Post key={post._id}

@@ -16,6 +16,13 @@ code {
   text-align: left;
   font-weight: bold;
 }
+.add-form
+{
+  margin-top:15px;
+  margin-bottom:15px;
+  margin-left:40px;
+  margin-right: 40px;
+}
 .card
 {
   box-shadow: gray;

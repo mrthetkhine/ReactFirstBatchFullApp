@@ -27,7 +27,7 @@ const verifyUserToken = (req, res, next) => {
 
     try {
         token = token.split(' ')[1] // Remove Bearer from string
-        
+
         if (token === 'null' || !token) return res.status(401).send('Unauthorized request');
 
         let verifiedUser = jwt.verify(token, config.TOKEN_SECRET);   // config.TOKEN_SECRET => 'secretKey'
@@ -43,7 +43,8 @@ const verifyUserToken = (req, res, next) => {
 
 }
 app.use('/api/auth/', userRoutes);
-app.use('/api/posts', verifyUserToken,postsRoutes);
+app.use('/api/posts',postsRoutes);
+//app.use('/api/posts', verifyUserToken,postsRoutes);
 app.use('/api/comments', commentsRoutes);
 
 const PORT = process.env.PORT || 8080;

@@ -12,7 +12,7 @@ const AddPostForm = ({addPost})=> {
         setBody("");
     }
     return( <div >
-        <form className={"col-sm-8"}>
+        <form className={"col-sm-8 add-form"}>
             <div className="row">
 
                 <label htmlFor="title" className={"col-sm-2"}>Title</label>
