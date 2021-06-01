@@ -4,7 +4,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import {connect, useDispatch} from "react-redux";
 
-import { BrowserRouter as Router,Route } from "react-router-dom";
+import { BrowserRouter as Router,Route,Link } from "react-router-dom";
 
 import NewPostPage from "./pages/NewPostPage";
 import PostListPage from "./pages/PostListPage";
@@ -37,9 +37,9 @@ function App({loadPosts}) {
           <nav className="navbar" >
             <div className="navbar-nav " id="navbarNav">
               <ul className="navbar-nav mr-auto">
-                <li className="nav-item"><a href="/">Home</a></li>
-                <li className="nav-item"><a href="/new-post">New Post</a></li>
-                <li className="nav-item"><a href="/post-list">Post List</a></li>
+                <li className="nav-item"><Link to="/">Home</Link></li>
+                <li className="nav-item"><Link to="/new-post">New Post</Link></li>
+                <li className="nav-item"><Link to="/post-list">Post List</Link></li>
               </ul>
             </div>
 
