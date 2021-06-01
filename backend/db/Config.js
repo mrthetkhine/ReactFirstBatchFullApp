@@ -1,5 +1,5 @@
 module.exports = {
     config:{
-        TOKEN_SECRET : "!&#^&!^#!722!@@(!"
+        TOKEN_SECRET : "!&#^&!^#!722!@@(!" //should be store in enviroment
     }
 }
