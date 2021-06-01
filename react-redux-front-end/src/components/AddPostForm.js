@@ -1,7 +1,7 @@
 import React from "react";
 
 const AddPostForm = ({addPost})=> {
-    //console.log('Post ',post);
+    //console.log('PostDetail ',post);
     const [title, setTitle] = React.useState("");
     const [body, setBody] = React.useState("");
 

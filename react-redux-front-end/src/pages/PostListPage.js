@@ -1,5 +1,6 @@
 import React from "react";
 import {connect, useDispatch, useSelector} from "react-redux";
+import PostDetail from "../components/PostDetail";
 import Post from "../components/Post";
 import {apiLoadAllPost,apiAddPost,apiDeletePost} from "../action/backend/PostAPI";
 
@@ -38,9 +39,9 @@ const PostListPage = ()=> {
         {
             posts.map(post=>(
                 <Post key={post._id}
-                      post={post}
-                      deletePost={deletePostFunc}
-                      comments={getCommentForPost(comments,post)}>
+                            post={post}
+                            deletePost={deletePostFunc}
+                            comments={getCommentForPost(comments,post)}>
 
                 </Post>))
         }

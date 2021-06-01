@@ -46,7 +46,7 @@ export function apiDeletePost(reqPost)
         }
     };
     return (dispatch)=>{
-        console.log('Run function delete Post');
+        console.log('Run function delete PostDetail');
         fetch(API_URL+"/"+reqPost._id,options)
             .then(response=>response.json())
             .then(post=>dispatch(deletePost(reqPost)));

@@ -10,9 +10,10 @@ import NewPostPage from "./pages/NewPostPage";
 import PostListPage from "./pages/PostListPage";
 
 import {apiLoadAllPost} from "./action/backend/PostAPI";
-import Posts from "./components/Post";
+import Posts from "./components/PostDetail";
 
 import {apiLoadAllComments} from "./action/backend/CommentAPI";
+import PostListDetailPage from "./pages/PostListDetailPage";
 
 let store = window.store;
 
@@ -46,6 +47,7 @@ function App({loadPosts}) {
          {/* <Route path="/" component={App} />*/}
           <Route path="/new-post" component={NewPostPage} />
           <Route path="/post-list" component={PostListPage} />
+          <Route path="/post-list-detail/:id" component={PostListDetailPage} />
         </div>
       </Router>
 
