@@ -2,9 +2,9 @@ import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import {connect, useDispatch} from "react-redux";
+import {connect, useDispatch, useSelector} from "react-redux";
 
-import { BrowserRouter as Router,Route,Link } from "react-router-dom";
+import { BrowserRouter as Router,Route,Link ,Redirect} from "react-router-dom";
 
 import NewPostPage from "./pages/NewPostPage";
 import PostListPage from "./pages/PostListPage";
@@ -15,7 +15,7 @@ import Posts from "./components/PostDetail";
 import {apiLoadAllComments} from "./action/backend/CommentAPI";
 import PostListDetailPage from "./pages/PostListDetailPage";
 import LoginPage from "./pages/LoginPage";
-
+import GuardRoute from './components/GuardRoute';
 let store = window.store;
 
 function mapDispatchToProps(dispatch) {
@@ -27,6 +27,9 @@ function mapDispatchToProps(dispatch) {
 function App({loadPosts}) {
 
   let dispatch = useDispatch();
+  let user = useSelector(state=>state.user);
+
+  console.log("User ",user.token);
   useEffect(()=>{
     loadPosts();
     dispatch(apiLoadAllComments());
@@ -55,10 +58,14 @@ function App({loadPosts}) {
 
           </nav>
          {/* <Route path="/" component={App} />*/}
-          <Route path="/new-post" component={NewPostPage} />
-          <Route path="/post-list" component={PostListPage} />
-          <Route path="/post-list-detail/:id" component={PostListDetailPage} />
+          <GuardRoute path="/new-post" component={NewPostPage} auth={user.token} />
+          <GuardRoute path="/post-list" component={PostListPage} auth={user.token} />
+          <GuardRoute path="/post-list-detail/:id" component={PostListDetailPage} auth={user.token} />
           <Route path="/login" component={LoginPage} />
+          {
+            !user.token? <Redirect to='/login'/> : null
+
+          }
         </div>
       </Router>
 

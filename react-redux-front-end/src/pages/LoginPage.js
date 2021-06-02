@@ -1,11 +1,21 @@
 import React from "react";
+import {useDispatch} from "react-redux";
+import {useHistory} from 'react-router-dom';
+import {loadUser} from "../action/UserActions";
 
 const LoginPage = ()=>{
+    const dispatch = useDispatch();
+    const history = useHistory();
+
     const [userName, setUserName] = React.useState("");
     const [password, setPassword] = React.useState("");
+
     const handleSubmit = (e) => {
         console.log('Handle submit ',userName, password);
-
+        dispatch(loadUser({
+            token : 'AGEGE'
+        }));
+        history.push('/');
     }
     return(
         <div>
