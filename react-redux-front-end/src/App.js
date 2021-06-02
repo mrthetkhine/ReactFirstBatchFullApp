@@ -14,6 +14,7 @@ import Posts from "./components/PostDetail";
 
 import {apiLoadAllComments} from "./action/backend/CommentAPI";
 import PostListDetailPage from "./pages/PostListDetailPage";
+import LoginPage from "./pages/LoginPage";
 
 let store = window.store;
 
@@ -47,6 +48,7 @@ function App({loadPosts}) {
                   <li className="nav-item">
                     <Link className="nav-link" to="/post-list">Post List</Link>
                   </li>
+
                 </ul>
               </div>
             </div>
@@ -56,6 +58,7 @@ function App({loadPosts}) {
           <Route path="/new-post" component={NewPostPage} />
           <Route path="/post-list" component={PostListPage} />
           <Route path="/post-list-detail/:id" component={PostListDetailPage} />
+          <Route path="/login" component={LoginPage} />
         </div>
       </Router>
 
