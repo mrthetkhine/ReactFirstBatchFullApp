@@ -1,7 +1,7 @@
 import React from "react";
 import {useDispatch} from "react-redux";
 import {useHistory} from 'react-router-dom';
-import {loadUser} from "../action/UserActions";
+import {apiLogin} from "../action/backend/UserAPI";
 
 const LoginPage = ()=>{
     const dispatch = useDispatch();
@@ -12,10 +12,8 @@ const LoginPage = ()=>{
 
     const handleSubmit = (e) => {
         console.log('Handle submit ',userName, password);
-        dispatch(loadUser({
-            token : 'AGEGE'
-        }));
-        history.push('/');
+        dispatch(apiLogin(history,userName,password));
+
     }
     return(
         <div>
