@@ -16,6 +16,7 @@ import {apiLoadAllComments} from "./action/backend/CommentAPI";
 import PostListDetailPage from "./pages/PostListDetailPage";
 import LoginPage from "./pages/LoginPage";
 import GuardRoute from './components/GuardRoute';
+import LogoutPage from "./pages/LogoutPage";
 let store = window.store;
 
 function mapDispatchToProps(dispatch) {
@@ -45,12 +46,21 @@ function App({loadPosts}) {
                   <li className="nav-item">
                     <Link className="nav-link" to="/">Home</Link>
                   </li>
-                  <li className="nav-item">
-                    <Link className="nav-link"to="/new-post">New Post</Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/post-list">Post List</Link>
-                  </li>
+                  {
+                    user.token?<li className="nav-item">
+                      <Link className="nav-link"to="/new-post">New Post</Link>
+                    </li>:null
+                  }
+                  {
+                    user.token?<li className="nav-item">
+                      <Link className="nav-link" to="/post-list">Post List</Link>
+                    </li>:null
+                  }
+                  {
+                    user.token?<li className="nav-item">
+                      <Link className="nav-link" to="/logout">Logout</Link>
+                    </li>:null
+                  }
 
                 </ul>
               </div>
@@ -61,6 +71,7 @@ function App({loadPosts}) {
           <GuardRoute path="/new-post" component={NewPostPage} auth={user.token} />
           <GuardRoute path="/post-list" component={PostListPage} auth={user.token} />
           <GuardRoute path="/post-list-detail/:id" component={PostListDetailPage} auth={user.token} />
+          <GuardRoute path="/logout" component={LogoutPage} auth={user.token} />
           <Route path="/login" component={LoginPage} />
           {
             !user.token? <Redirect to='/login'/> : null

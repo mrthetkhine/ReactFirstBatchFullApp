@@ -1,4 +1,4 @@
-import {LOAD_USER} from "../action/constant/action-type";
+import {LOAD_USER, LOGOUT_USER} from "../action/constant/action-type";
 
 /*user = {
     token : 'eageage'
@@ -14,7 +14,10 @@ function userReducer(state = initialState, action) {
     {
         case LOAD_USER:
             return action.user;
-
+        case LOGOUT_USER:
+            return {
+                
+            };
     }
     return state;
 };
