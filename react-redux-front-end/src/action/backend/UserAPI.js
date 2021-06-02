@@ -29,6 +29,7 @@ export function apiLogin(history,userName,password)
             .then(response=>response.json())
             .then(user=>{
                 dispatch(loadUser(user));
+                localStorage.setItem("user",JSON.stringify(user));
                 dispatch(apiLoadAllPost());
                 dispatch(apiLoadAllComments());
                 history.push('/');
