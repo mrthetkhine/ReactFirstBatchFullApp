@@ -31,8 +31,8 @@ function App({loadPosts}) {
 
   console.log("User ",user.token);
   useEffect(()=>{
-    loadPosts();
-    dispatch(apiLoadAllComments());
+    //loadPosts();
+    //dispatch(apiLoadAllComments());
   },[])
 
   return (

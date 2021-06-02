@@ -1,12 +1,14 @@
 import {addPost, loadPosts,deletePost} from "../PostActions";
 import {API_HOST} from "../../Setting";
+import axios from "./interceptor";
+
 const API_URL = API_HOST+"/posts"
 export function apiLoadAllPost()
 {
     console.log('Load all post with REST');
     return (dispatch)=>{
         console.log('Run function loadAllPost');
-        fetch(API_URL)
+        axios.get(API_URL)
             .then(response=>response.json())
             .then(posts=>dispatch(loadPosts(posts)));
         ;
@@ -29,7 +31,7 @@ export function apiAddPost(title,body)
     };
     return (dispatch)=>{
         console.log('Run function loadAllPost');
-        fetch(API_URL,options)
+        axios.post(API_URL,options)
             .then(response=>response.json())
             .then(post=>dispatch(addPost(post)));
         ;
@@ -47,7 +49,7 @@ export function apiDeletePost(reqPost)
     };
     return (dispatch)=>{
         console.log('Run function delete PostDetail');
-        fetch(API_URL+"/"+reqPost._id,options)
+        axios.delete(API_URL+"/"+reqPost._id,options)
             .then(response=>response.json())
             .then(post=>dispatch(deletePost(reqPost)));
         ;

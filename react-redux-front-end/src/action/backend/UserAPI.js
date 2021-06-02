@@ -2,6 +2,9 @@ import {addPost, loadPosts,deletePost} from "../PostActions";
 import {API_HOST} from "../../Setting";
 import {loadUser} from "../UserActions";
 import {useHistory} from 'react-router-dom';
+import {apiLoadAllPost} from "./PostAPI";
+import {apiLoadAllComments} from "./CommentAPI";
+
 const API_URL = API_HOST+"/auth/login"
 
 export function apiLogin(history,userName,password)
@@ -26,6 +29,8 @@ export function apiLogin(history,userName,password)
             .then(response=>response.json())
             .then(user=>{
                 dispatch(loadUser(user));
+                dispatch(apiLoadAllPost());
+                dispatch(apiLoadAllComments());
                 history.push('/');
             });
         ;

@@ -43,9 +43,9 @@ const verifyUserToken = (req, res, next) => {
 
 }
 app.use('/api/auth/', userRoutes);
-app.use('/api/posts',postsRoutes);
-//app.use('/api/posts', verifyUserToken,postsRoutes);
-app.use('/api/comments', commentsRoutes);
+//app.use('/api/posts',postsRoutes);
+app.use('/api/posts', verifyUserToken,postsRoutes);
+app.use('/api/comments',verifyUserToken, commentsRoutes);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Server running at port ${PORT}`));
